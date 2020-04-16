@@ -14,10 +14,8 @@ def main():
         r1 = str(input()).split()
         print("Enter row 2:")
         r2 = str(input()).split()
-        #print(r2)
         r1 = [float(i) for i in r1]
         r2 = [float(i) for i in r2]
-        #print(r2)
         x = np.array([r1, r2], dtype='float')
     elif(n == 3):
         print("Enter row 1 separated by spaces (e.g. 1 2 3):")
@@ -58,9 +56,7 @@ def main():
         li = doublearr(n)
         for i in range(n):
             for j in range(n):
-                # print(inv[i, j], end=' ')
                 li[i][j] = str(Fraction(inv[i, j]).limit_denominator())
-                # print(Fraction(inv[i, j]))
     for a in range(len(li)):
         print(li[a])
 
@@ -75,7 +71,6 @@ def doublearr(na):
         ia+=1
     return li
 
-
 def transposeMatrix(m):
     return map(list,zip(*m))
 
@@ -83,7 +78,6 @@ def getMatrixMinor(m,i,j):
     return [row[:j] + row[j+1:] for row in (m[:i]+m[i+1:])]
 
 def getMatrixDeternminant(m):
-    #base case for 2x2 matrix
     if len(m) == 2:
         return m[0][0]*m[1][1]-m[0][1]*m[1][0]
 
@@ -94,12 +88,9 @@ def getMatrixDeternminant(m):
 
 def getMatrixInverse(m):
     determinant = getMatrixDeternminant(m)
-    #special case for 2x2 matrix:
     if len(m) == 2:
         return [[m[1][1]/determinant, -1*m[0][1]/determinant],
                 [-1*m[1][0]/determinant, m[0][0]/determinant]]
-
-    #find matrix of cofactors
     cofactors = []
     for r in range(len(m)):
         cofactorRow = []
