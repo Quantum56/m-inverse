@@ -14,10 +14,10 @@ def main():
         r1 = str(input()).split()
         print("Enter row 2:")
         r2 = str(input()).split()
-        print(r2)
+        #print(r2)
         r1 = [float(i) for i in r1]
         r2 = [float(i) for i in r2]
-        print(r2)
+        #print(r2)
         x = np.array([r1, r2], dtype='float')
     elif(n == 3):
         print("Enter row 1 separated by spaces (e.g. 1 2 3):")
@@ -51,21 +51,25 @@ def main():
     if('y' in yn or 'yes' in yn):
         i = 0
         j = 0
-        li = []
-        ia = 0
-        li = []
-        for l in range(n):
-            li.append([])
-        for la in range(n):
-            for ls in range(n):
-                li[ia].append(n)
-            ia+=1
+        li = doublearr(n)
         for i in range(n):
             for j in range(n):
-                print(inv[i, j], end=' ')
+                # print(inv[i, j], end=' ')
                 li[i][j] = str(Fraction(inv[i, j]).limit_denominator())
-                print(Fraction(inv[i, j]))
-    print(li)
+                # print(Fraction(inv[i, j]))
+    for a in range(len(li)):
+        print(li[a])
+
+def doublearr(na):
+    li = []
+    ia = 0
+    for l in range(na):
+        li.append([])
+    for la in range(na):
+        for ls in range(na):
+            li[ia].append(na)
+        ia+=1
+    return li
 
 if(__name__=="__main__"):
     main()
