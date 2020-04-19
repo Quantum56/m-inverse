@@ -25,7 +25,7 @@ def main():
     if('y' in yn or 'yes' in yn):
         i = 0
         j = 0
-        li = doublearr(nx)
+        li = emptyArr(nx)
         for i in range(nx):
             for j in range(nx):
                 li[i][j] = str(Fraction(inv[i, j]).limit_denominator())
@@ -71,7 +71,7 @@ def getMatrix(n):
         pass
     return x
 
-def doublearr(na):
+def emptyArr(na):
     li = []
     ia = 0
     for l in range(na):
