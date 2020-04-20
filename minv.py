@@ -12,11 +12,13 @@ def main():
         nx = int(input("Please enter a number: "))
     except ValueError:
         print("Error ln 15")
+    if(nx > 4):
+        raise ValueError('Matrix dimension out of bounds')
     xa = getMatrix(nx)
-    inva = getMatrixInverse(xa)
+    inv = getMatrixInverse(xa)
     print('\n')
-    for ab in range(len(inva)):
-        print(inva[ab])
+    for ab in range(len(inv)):
+        print(inv[ab])
     print('Attempt fractions? (y/n)')
     yn = str(input())
     print('\n')
@@ -26,7 +28,7 @@ def main():
         li = emptyArr(nx)
         for i in range(nx):
             for j in range(nx):
-                li[i][j] = str(Fraction(inva[i][j]).limit_denominator())
+                li[i][j] = str(Fraction(inv[i][j]).limit_denominator())
     for a in range(len(li)):
         print(li[a])
 
