@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import re
-import numpy as np
 from fractions import Fraction
 
 nx = 0
@@ -14,11 +13,10 @@ def main():
     except ValueError:
         print("Error ln 15")
     xa = getMatrix(nx)
-    inva = getMatrixInverse(xa.tolist())
+    inva = getMatrixInverse(xa)
     print('\n')
     for ab in range(len(inva)):
         print(inva[ab])
-    inv = np.array(list(inva))
     print('Attempt fractions? (y/n)')
     yn = str(input())
     print('\n')
@@ -28,7 +26,7 @@ def main():
         li = emptyArr(nx)
         for i in range(nx):
             for j in range(nx):
-                li[i][j] = str(Fraction(inv[i, j]).limit_denominator())
+                li[i][j] = str(Fraction(inva[i][j]).limit_denominator())
     for a in range(len(li)):
         print(li[a])
 
@@ -41,7 +39,7 @@ def getMatrix(n):
             r2 = str(input()).split()
             r1 = [float(i) for i in r1]
             r2 = [float(i) for i in r2]
-            x = np.array([r1, r2], dtype='float')
+            x = [r1, r2]
         elif(n == 3):
             print("Enter row 1 separated by spaces (e.g. 1 2 3):")
             r1 = str(input()).split()
@@ -52,7 +50,7 @@ def getMatrix(n):
             r1 = [float(i) for i in r1]
             r2 = [float(i) for i in r2]
             r3 = [float(i) for i in r3]
-            x = np.array([r1, r2, r3], dtype='float')
+            x = [r1, r2, r3]
         elif(n == 4):
             print("Enter row 1 separated by spaces (e.g. 1 2 3 4):")
             r1 = str(input()).split()
@@ -66,7 +64,7 @@ def getMatrix(n):
             r2 = [float(i) for i in r2]
             r3 = [float(i) for i in r3]
             r4 = [float(i) for i in r4]
-            x = np.array([r1, r2, r3, r4], dtype='float')
+            x = [r1, r2, r3, r4]
     except ValueError:
         pass
     return x
