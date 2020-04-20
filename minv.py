@@ -3,8 +3,6 @@
 import re
 from fractions import Fraction
 
-nx = 0
-
 def main():
     print('Matrix inverse calculator (c) Zack Bartley \n\n')
     print('Please input the matrix dimension (2-4):')
