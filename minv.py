@@ -7,7 +7,7 @@ from fractions import Fraction
 nx = 0
 
 def main():
-    print('Matrix inverse calculator (c) Quantum56 \n\n')
+    print('Matrix inverse calculator (c) Zack Bartley \n\n')
     print('Please input the matrix dimension (2-4):')
     try:
         nx = int(input("Please enter a number: "))
