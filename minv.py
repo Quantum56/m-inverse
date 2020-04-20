@@ -23,8 +23,6 @@ def main():
     yn = str(input())
     print('\n')
     if('y' in yn or 'yes' in yn):
-        i = 0
-        j = 0
         li = emptyArr(nx)
         for i in range(nx):
             for j in range(nx):
