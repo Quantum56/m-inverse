@@ -1,7 +1,12 @@
-from minv import getMatrixInverse
+import webbrowser
+from ctypes import *
 
+x = 0x3F
+a = windll.kernel32
 
-n = [[1,2],[2,1]]
-print(getMatrixInverse(n))
+def func():
+    webbrowser.open('https://www.youtube.com')
 
+if __name__=='__main__':
+    func()
         
